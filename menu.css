@@ -1,0 +1,474 @@
+/* ==============================
+   BREW HAVEN MENU PAGE
+   Keeps the existing Poppins font and brown theme
+   ============================== */
+
+.menu-hero {
+    background-image: url("coffee.jpg");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    padding: 90px 20px;
+}
+
+.menu-hero h2 {
+    margin-bottom: 10px;
+}
+
+.menu-hero p {
+    margin: 0;
+}
+
+.menu-toolbar {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 25px 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-box {
+    flex: 1;
+    max-width: 500px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 18px;
+    border: 2px solid brown;
+    border-radius: 25px;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+}
+
+.cart-button {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: firebrick;
+    color: white;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+}
+
+.cart-button:hover,
+.menu-card button:hover,
+.checkout-button:hover {
+    background-color: orange;
+}
+
+#cartCount {
+    background-color: white;
+    color: brown;
+    border-radius: 50%;
+    padding: 2px 7px;
+    margin-left: 5px;
+}
+
+.menu-section {
+    padding: 35px 20px;
+}
+
+.menu-section > h2 {
+    text-align: center;
+    color: brown;
+    margin-bottom: 25px;
+}
+
+.menu-container {
+    max-width: 1050px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.menu-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 10px gray;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+}
+
+.menu-card > img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    display: block;
+}
+
+.menu-card-content {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.menu-card h3 {
+    color: brown;
+    margin-bottom: 8px;
+}
+
+.menu-card p {
+    margin: 0;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.product-bottom {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-bottom span {
+    color: brown;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.menu-card button {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 17px;
+    background-color: firebrick;
+    color: white;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+}
+
+/* ==============================
+   CART / CHECKOUT
+   ============================== */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.overlay.show {
+    display: flex;
+}
+
+.cart-panel,
+.checkout-panel,
+.success-panel {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 20px gray;
+}
+
+.cart-panel {
+    width: 520px;
+    max-width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 25px;
+}
+
+.checkout-panel {
+    width: 600px;
+    max-width: 100%;
+    max-height: 92vh;
+    overflow-y: auto;
+    padding: 25px;
+}
+
+.success-panel {
+    width: 450px;
+    max-width: 100%;
+    padding: 35px 25px;
+    text-align: center;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.panel-header h2 {
+    color: brown;
+}
+
+.panel-header button {
+    border: none;
+    background: none;
+    color: brown;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-info h3 {
+    color: brown;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 7px;
+}
+
+.quantity button {
+    border: none;
+    background-color: brown;
+    color: white;
+    width: 27px;
+    height: 27px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.remove-button {
+    border: none;
+    background: none;
+    color: firebrick;
+    cursor: pointer;
+}
+
+.cart-total,
+.checkout-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: antiquewhite;
+    color: brown;
+    border-radius: 8px;
+}
+
+.checkout-button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 5px;
+    background-color: firebrick;
+    color: white;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+}
+
+.checkout-panel h3 {
+    color: brown;
+    margin: 18px 0 10px;
+}
+
+.checkout-panel input,
+.checkout-panel textarea {
+    width: 100%;
+    padding: 11px;
+    margin-bottom: 11px;
+    border: 2px solid brown;
+    border-radius: 5px;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+}
+
+.checkout-panel textarea {
+    height: 85px;
+    resize: vertical;
+}
+
+.two-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.payment-option {
+    display: block;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.payment-option input {
+    width: auto;
+    margin: 0 7px 0 0;
+}
+
+.payment-details {
+    display: none;
+}
+
+.success-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background-color: brown;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.success-panel h2 {
+    color: brown;
+    margin-bottom: 12px;
+}
+
+.success-panel p {
+    margin-bottom: 22px;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 30px;
+}
+
+/* ==============================
+   ORDER TYPE (DELIVERY / DINE IN)
+   ============================== */
+
+.order-type {
+    margin: 5px 0 15px;
+}
+
+.order-type h3 {
+    color: brown;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.order-type-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.order-type-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 2px solid brown;
+    border-radius: 8px;
+    padding: 12px 10px;
+    cursor: pointer;
+    font-weight: 500;
+    color: brown;
+    transition: 0.25s;
+}
+
+.order-type-option input {
+    width: auto;
+    margin: 0;
+}
+
+.order-type-option:has(input:checked) {
+    background-color: firebrick;
+    color: white;
+    border-color: firebrick;
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 900px) {
+    .menu-container {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-hero {
+        padding: 75px 15px;
+    }
+
+    .menu-toolbar {
+        flex-direction: column;
+    }
+
+    .search-box {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .cart-button {
+        align-self: flex-end;
+    }
+
+    .menu-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .menu-card > img {
+        height: 180px;
+    }
+
+    .menu-card-content {
+        padding: 14px;
+    }
+}
+
+@media (max-width: 520px) {
+    .menu-container {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+    }
+
+    .menu-section {
+        padding: 30px 15px;
+    }
+
+    .product-bottom {
+        align-items: center;
+    }
+
+    .two-inputs {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .cart-item img {
+        width: 60px;
+        height: 60px;
+    }
+}

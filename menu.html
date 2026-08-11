@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Brew Haven</title>
+    <meta name="description" content="Browse Brew Haven's coffee menu - hot coffee, cold coffee, snacks and desserts. Order for dine-in or delivery.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="canonical" href="https://www.brewhaven.example.com/menu.html">
+    <meta name="theme-color" content="#a52a2a">
+
+    <!-- Open Graph / Social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Menu | Brew Haven">
+    <meta property="og:description" content="Browse Brew Haven's coffee menu - hot coffee, cold coffee, snacks and desserts. Order for dine-in or delivery.">
+    <meta property="og:image" content="https://www.brewhaven.example.com/coffee_menu.png">
+    <meta property="og:url" content="https://www.brewhaven.example.com/menu.html">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:site_name" content="Brew Haven">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Menu | Brew Haven">
+    <meta name="twitter:description" content="Browse Brew Haven's coffee menu - hot coffee, cold coffee, snacks and desserts. Order for dine-in or delivery.">
+    <meta name="twitter:image" content="https://www.brewhaven.example.com/coffee_menu.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("Ztss8Vr9XAJ30j3n_");
+        })();
+    </script>
+</head>
+
+<body>
+
+    <nav aria-label="Main navigation">
+        <h1>Brew Haven</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="menu.html" aria-current="page">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="menu-hero">
+        <h2>Our Coffee Menu</h2>
+        <p>Freshly brewed coffee made with passion and premium ingredients.</p>
+        <br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br>
+    </section>
+
+    <section class="menu-toolbar">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search Your Favorite Coffee..." aria-label="Search the coffee menu">
+        </div>
+
+        <button class="cart-button" onclick="openCart()" aria-label="Open cart">
+            🛒 Cart <span id="cartCount" aria-live="polite">0</span>
+        </button>
+    </section>
+
+    <main id="menuList">
+
+        <section class="menu-section product-section">
+            <h2>Hot Coffee</h2>
+
+            <div class="menu-container">
+
+                <div class="menu-card" data-name="Espresso">
+                    <img src="espresso.jpeg" alt="Espresso">
+                    <div class="menu-card-content">
+                        <h3>Espresso</h3>
+                        <p>Strong and rich coffee shot with bold flavor.</p>
+                        <div class="product-bottom">
+                            <span>₹100</span>
+                            <button onclick="addToCart('Espresso', 100, 'espresso.jpeg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-name="Cappuccino">
+                    <img src="cappuccino.jpeg" alt="Cappuccino">
+                    <div class="menu-card-content">
+                        <h3>Cappuccino</h3>
+                        <p>Creamy milk foam blended with fresh espresso.</p>
+                        <div class="product-bottom">
+                            <span>₹150</span>
+                            <button onclick="addToCart('Cappuccino', 150, 'cappuccino.jpeg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-name="Latte">
+                    <img src="latte.jpeg" alt="Latte">
+                    <div class="menu-card-content">
+                        <h3>Latte</h3>
+                        <p>Smooth and milky coffee with rich aroma.</p>
+                        <div class="product-bottom">
+                            <span>₹180</span>
+                            <button onclick="addToCart('Latte', 180, 'latte.jpeg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="menu-section product-section">
+            <h2>Cold Coffee</h2>
+
+            <div class="menu-container">
+
+                <div class="menu-card" data-name="Cold Coffee">
+                    <img src="cold coffee.jpeg" alt="Cold Coffee" loading="lazy">
+                    <div class="menu-card-content">
+                        <h3>Cold Coffee</h3>
+                        <p>Refreshing chilled coffee with creamy texture.</p>
+                        <div class="product-bottom">
+                            <span>₹170</span>
+                            <button onclick="addToCart('Cold Coffee', 170, 'cold coffee.jpeg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-name="Mocha Frappe">
+                    <img src="mocha.jpeg" alt="Mocha Frappe" loading="lazy">
+                    <div class="menu-card-content">
+                        <h3>Mocha Frappe</h3>
+                        <p>Chocolate blended iced coffee delight.</p>
+                        <div class="product-bottom">
+                            <span>₹220</span>
+                            <button onclick="addToCart('Mocha Frappe', 220, 'mocha.jpeg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-name="Caramel Macchiato">
+                    <img src="caramel.jpeg" alt="Caramel Macchiato" loading="lazy">
+                    <div class="menu-card-content">
+                        <h3>Caramel Macchiato</h3>
+                        <p>Sweet caramel flavored iced coffee.</p>
+                        <div class="product-bottom">
+                            <span>₹240</span>
+                            <button onclick="addToCart('Caramel Macchiato', 240, 'caramel.jpeg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="menu-section product-section">
+            <h2>Snacks & Desserts</h2>
+
+            <div class="menu-container">
+
+                <div class="menu-card" data-name="Chocolate Brownie">
+                    <img src="brownie.jpeg" alt="Chocolate Brownie" loading="lazy">
+                    <div class="menu-card-content">
+                        <h3>Chocolate Brownie</h3>
+                        <p>Rich chocolate brownie served warm.</p>
+                        <div class="product-bottom">
+                            <span>₹140</span>
+                            <button onclick="addToCart('Chocolate Brownie', 140, 'brownie.jpeg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-name="Cheese Sandwich">
+                    <img src="sandwich.jpeg" alt="Cheese Sandwich" loading="lazy">
+                    <div class="menu-card-content">
+                        <h3>Cheese Sandwich</h3>
+                        <p>Freshly grilled sandwich with cheese filling.</p>
+                        <div class="product-bottom">
+                            <span>₹160</span>
+                            <button onclick="addToCart('Cheese Sandwich', 160, 'sandwich.jpeg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-name="Blueberry Muffin">
+                    <img src="muffin.jpeg" alt="Blueberry Muffin" loading="lazy">
+                    <div class="menu-card-content">
+                        <h3>Blueberry Muffin</h3>
+                        <p>Soft muffin filled with blueberry flavor.</p>
+                        <div class="product-bottom">
+                            <span>₹130</span>
+                            <button onclick="addToCart('Blueberry Muffin', 130, 'muffin.jpeg')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <section class="offer">
+        <h2>Special Offer</h2>
+        <p>Buy 1 Cappuccino and Get 1 Bluberry Muffin Free Every Friday!</p>
+    </section>
+
+    <!-- CART -->
+    <div class="overlay" id="cartOverlay" onclick="closeCart(event)">
+        <div class="cart-panel" onclick="event.stopPropagation()">
+            <div class="panel-header">
+                <h2>Your Cart</h2>
+                <button onclick="closeCart()">×</button>
+            </div>
+
+            <div id="cartItems" aria-live="polite"></div>
+
+            <div class="cart-total">
+                <span>Total</span>
+                <strong>₹<span id="cartTotal">0</span></strong>
+            </div>
+
+            <div class="order-type">
+                <h3>How would you like your order?</h3>
+                <div class="order-type-options">
+                    <label class="order-type-option" id="deliveryOptionLabel">
+                        <input type="radio" name="orderType" value="Delivery" onchange="selectOrderType('Delivery')">
+                        🚚 Delivery
+                    </label>
+                    <label class="order-type-option" id="dineInOptionLabel">
+                        <input type="radio" name="orderType" value="Dine In" onchange="selectOrderType('Dine In')">
+                        🍽️ Dine In
+                    </label>
+                </div>
+            </div>
+
+            <button class="checkout-button" onclick="openCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- CHECKOUT -->
+    <div class="overlay" id="checkoutOverlay" onclick="closeCheckout(event)">
+        <div class="checkout-panel" onclick="event.stopPropagation()">
+            <div class="panel-header">
+                <h2>Checkout</h2>
+                <button onclick="closeCheckout()">×</button>
+            </div>
+
+            <form id="checkoutForm">
+                <h3 id="detailsHeading">Delivery Details</h3>
+
+                <input type="text" id="customerName" placeholder="Full Name" aria-label="Full Name" required>
+                <input type="tel" id="customerPhone" placeholder="Mobile Number" pattern="[0-9]{10}" aria-label="Mobile Number" required>
+                <input type="email" id="customerEmail" placeholder="Email Address" aria-label="Email Address" required>
+
+                <!-- DELIVERY ONLY FIELDS -->
+                <div id="deliveryFields">
+                    <textarea id="customerAddress" placeholder="Delivery Address" aria-label="Delivery Address"></textarea>
+
+                    <div class="two-inputs">
+                        <input type="text" id="customerCity" placeholder="City" aria-label="City">
+                        <input type="text" id="customerPincode" placeholder="Pincode" pattern="[0-9]{6}" aria-label="Pincode">
+                    </div>
+                </div>
+
+                <!-- DINE IN ONLY FIELDS -->
+                <div id="dineInFields" style="display:none;">
+                    <div class="two-inputs">
+                        <input type="number" id="guestCount" placeholder="Number of Guests" min="1" aria-label="Number of Guests">
+                        <input type="text" id="preferredTime" placeholder="Preferred Time (e.g. 7:30 PM)" aria-label="Preferred Time">
+                    </div>
+                    <textarea id="dineInNote" placeholder="Any special request (optional)" aria-label="Special request, optional"></textarea>
+                </div>
+
+                <h3>Payment Method</h3>
+
+                <label class="payment-option">
+                    <input type="radio" name="payment" value="UPI" required>
+                    UPI
+                </label>
+
+                <label class="payment-option">
+                    <input type="radio" name="payment" value="Card">
+                    Credit / Debit Card
+                </label>
+
+                <label class="payment-option" id="codOption">
+                    <input type="radio" name="payment" value="Cash on Delivery">
+                    Cash on Delivery
+                </label>
+
+                <label class="payment-option" id="counterOption" style="display:none;">
+                    <input type="radio" name="payment" value="Pay at Counter">
+                    Pay at Counter
+                </label>
+
+                <div id="upiDetails" class="payment-details">
+                    <input type="text" placeholder="Enter UPI ID">
+                </div>
+
+                <div id="cardDetails" class="payment-details">
+                    <input type="text" placeholder="Card Number" pattern="[0-9]{16}">
+                    <div class="two-inputs">
+                        <input type="text" placeholder="MM/YY">
+                        <input type="text" placeholder="CVV" pattern="[0-9]{3}">
+                    </div>
+                </div>
+
+                <div class="checkout-total">
+                    <span>Order Total</span>
+                    <strong>₹<span id="checkoutTotal">0</span></strong>
+                </div>
+
+                <button type="submit" class="checkout-button">Proceed to Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="overlay" id="successOverlay">
+        <div class="success-panel">
+            <div class="success-icon">✓</div>
+            <h2>Order Placed Successfully!</h2>
+            <p id="orderMessage" aria-live="polite"></p>
+            <button class="checkout-button" onclick="finishOrder()">Continue Shopping</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Brew Haven | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        let cart = [];
+        let orderType = null;
+
+        // ---- Cart persistence (localStorage) ----
+        // Keeps the cart intact for a visitor even if they refresh
+        // or navigate away and come back to the menu page.
+        function saveCartToStorage() {
+            try {
+                localStorage.setItem("brewhaven_cart", JSON.stringify(cart));
+                localStorage.setItem("brewhaven_orderType", orderType || "");
+            } catch (e) {
+                console.warn("Could not save cart:", e);
+            }
+        }
+
+        function loadCartFromStorage() {
+            try {
+                const savedCart = localStorage.getItem("brewhaven_cart");
+                const savedType = localStorage.getItem("brewhaven_orderType");
+
+                if (savedCart) {
+                    cart = JSON.parse(savedCart);
+                }
+
+                if (savedType) {
+                    orderType = savedType;
+                    const radio = document.querySelector(`input[name="orderType"][value="${savedType}"]`);
+                    if (radio) radio.checked = true;
+                }
+            } catch (e) {
+                console.warn("Could not load saved cart:", e);
+                cart = [];
+            }
+        }
+
+        function selectOrderType(type) {
+            orderType = type;
+            saveCartToStorage();
+        }
+
+        function addToCart(name, price, image) {
+            const item = cart.find(product => product.name === name);
+
+            if (item) {
+                item.quantity++;
+            } else {
+                cart.push({ name, price, image, quantity: 1 });
+            }
+
+            updateCart();
+            openCart();
+        }
+
+        function updateCart() {
+            const container = document.getElementById("cartItems");
+            let total = 0;
+            let count = 0;
+
+            container.innerHTML = "";
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p class="empty-cart">Your cart is empty.</p>';
+            }
+
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+                count += item.quantity;
+
+                container.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="cart-item-info">
+                            <h3>${item.name}</h3>
+                            <p>₹${item.price}</p>
+                            <div class="quantity">
+                                <button onclick="changeQuantity(${index}, -1)">−</button>
+                                <span>${item.quantity}</span>
+                                <button onclick="changeQuantity(${index}, 1)">+</button>
+                            </div>
+                        </div>
+                        <button class="remove-button" onclick="removeItem(${index})">Remove</button>
+                    </div>
+                `;
+            });
+
+            document.getElementById("cartCount").textContent = count;
+            document.getElementById("cartTotal").textContent = total;
+            document.getElementById("checkoutTotal").textContent = total;
+
+            saveCartToStorage();
+        }
+
+        function changeQuantity(index, change) {
+            cart[index].quantity += change;
+
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+
+            updateCart();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function openCart() {
+            updateCart();
+            document.getElementById("cartOverlay").classList.add("show");
+        }
+
+        function closeCart(event) {
+            if (event && event.target !== event.currentTarget) return;
+            document.getElementById("cartOverlay").classList.remove("show");
+        }
+
+        function openCheckout() {
+            if (cart.length === 0) {
+                alert("Please add an item to your cart.");
+                return;
+            }
+
+            if (!orderType) {
+                alert("Please select Delivery or Dine In before checkout.");
+                return;
+            }
+
+            setupCheckoutForOrderType();
+
+            closeCart();
+            document.getElementById("checkoutTotal").textContent = getTotal();
+            document.getElementById("checkoutOverlay").classList.add("show");
+        }
+
+        function setupCheckoutForOrderType() {
+            const deliveryFields = document.getElementById("deliveryFields");
+            const dineInFields = document.getElementById("dineInFields");
+            const heading = document.getElementById("detailsHeading");
+            const codOption = document.getElementById("codOption");
+            const counterOption = document.getElementById("counterOption");
+
+            const address = document.getElementById("customerAddress");
+            const city = document.getElementById("customerCity");
+            const pincode = document.getElementById("customerPincode");
+
+            if (orderType === "Delivery") {
+                heading.textContent = "Delivery Details";
+
+                deliveryFields.style.display = "block";
+                dineInFields.style.display = "none";
+
+                address.required = true;
+                city.required = true;
+                pincode.required = true;
+
+                codOption.style.display = "block";
+                counterOption.style.display = "none";
+            } else {
+                heading.textContent = "Dine In Details";
+
+                deliveryFields.style.display = "none";
+                dineInFields.style.display = "block";
+
+                address.required = false;
+                city.required = false;
+                pincode.required = false;
+
+                codOption.style.display = "none";
+                counterOption.style.display = "block";
+            }
+        }
+
+        function closeCheckout(event) {
+            if (event && event.target !== event.currentTarget) return;
+            document.getElementById("checkoutOverlay").classList.remove("show");
+        }
+
+        function getTotal() {
+            return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        }
+
+        document.querySelectorAll('input[name="payment"]').forEach(input => {
+            input.addEventListener("change", function () {
+                document.getElementById("upiDetails").style.display =
+                    this.value === "UPI" ? "block" : "none";
+
+                document.getElementById("cardDetails").style.display =
+                    this.value === "Card" ? "block" : "none";
+            });
+        });
+
+        document.getElementById("checkoutForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+
+            const name = document.getElementById("customerName").value.trim();
+            const phone = document.getElementById("customerPhone").value.trim();
+            const email = document.getElementById("customerEmail").value.trim();
+            const payment = document.querySelector('input[name="payment"]:checked').value;
+            const total = getTotal();
+
+            const itemsSummary = cart
+                .map(item => `${item.name} x${item.quantity} - ₹${item.price * item.quantity}`)
+                .join("\n");
+
+            let confirmationMessage;
+            let orderDetails;
+
+            if (orderType === "Delivery") {
+                const address = document.getElementById("customerAddress").value.trim();
+                const city = document.getElementById("customerCity").value.trim();
+                const pincode = document.getElementById("customerPincode").value.trim();
+
+                confirmationMessage = `Thank you, ${name}! Your ${payment} order of ₹${total} will be delivered to you in ${city}.`;
+                orderDetails = `Order Type: Delivery\nAddress: ${address}, ${city} - ${pincode}`;
+            } else {
+                const guests = document.getElementById("guestCount").value.trim();
+                const preferredTime = document.getElementById("preferredTime").value.trim();
+                const note = document.getElementById("dineInNote").value.trim();
+                const guestText = guests ? ` for ${guests} guest(s)` : "";
+
+                confirmationMessage = `Thank you, ${name}! Your table${guestText} is being prepared. Please pay via ${payment} at the counter. Order total: ₹${total}.`;
+                orderDetails = `Order Type: Dine In\nGuests: ${guests || "N/A"}\nPreferred Time: ${preferredTime || "N/A"}\nNote: ${note || "None"}`;
+            }
+
+            const templateParams = {
+                customer_name: name,
+                customer_phone: phone,
+                customer_email: email,
+                order_type: orderType,
+                payment_method: payment,
+                order_items: itemsSummary,
+                order_total: total,
+                order_details: orderDetails
+            };
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Placing Order...";
+
+            emailjs.send("service_m41kks6", "template_kwddsk9", templateParams)
+                .then(function () {
+                    document.getElementById("orderMessage").textContent = confirmationMessage;
+                    document.getElementById("checkoutOverlay").classList.remove("show");
+                    document.getElementById("successOverlay").classList.add("show");
+                })
+                .catch(function (error) {
+                    console.error("EmailJS error:", error);
+                    alert("Sorry, we couldn't place your order right now. Please try again or call us directly.");
+                })
+                .finally(function () {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
+                });
+        });
+
+        function finishOrder() {
+            cart = [];
+            orderType = null;
+            updateCart();
+            document.getElementById("checkoutForm").reset();
+            document.getElementById("upiDetails").style.display = "none";
+            document.getElementById("cardDetails").style.display = "none";
+            document.querySelectorAll('input[name="orderType"]').forEach(input => input.checked = false);
+            document.getElementById("successOverlay").classList.remove("show");
+        }
+
+        document.getElementById("searchInput").addEventListener("input", function () {
+            const value = this.value.toLowerCase().trim();
+
+            document.querySelectorAll(".product-section").forEach(section => {
+                let visible = false;
+
+                section.querySelectorAll(".menu-card").forEach(card => {
+                    const name = card.dataset.name.toLowerCase();
+                    const description = card.querySelector("p").textContent.toLowerCase();
+
+                    const match = name.includes(value) || description.includes(value);
+                    card.style.display = match ? "" : "none";
+
+                    if (match) visible = true;
+                });
+
+                section.style.display = visible ? "" : "none";
+            });
+        });
+
+        loadCartFromStorage();
+        updateCart();
+    </script>
+
+</body>
+</html>
